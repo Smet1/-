@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example page</title>
+</head>
+<body>
+    <ul>
+        {% for element in list %}
+            {% if element == '2' %}
+                <li>Двойка</li>
+            {% elif element == '3' %}
+                <li>Тройка</li>
+            {% else %}
+                <li>{{ element }}</li>
+            {% endif %}
+        {% empty %}
+            пустой список
+        {% endfor %}
+    </ul>
+</body>
+</html>
