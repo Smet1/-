@@ -28,9 +28,7 @@ class BaseClient:
     # Отправка запроса к VK API
     def _get_data(self, method, http_method):
         response = None
-
         # todo выполнить запрос
-
         return self.response_handler(response)
 
     # Обработка ответа от VK API
@@ -43,24 +41,3 @@ class BaseClient:
             self.method,
             http_method=self.http_method
         )
-
-class User(BaseClient):
-    def __init__(self ,url, meth, http):
-        self.BASE_URL = url
-        self.method = meth
-        self.http_method = http
-    def get_params(self):
-        return { self.BASE_URL, self.method, self.http_method}
-    def generate_url(self):
-        return '{0}{1}'.format(self.BASE_URL, self.method)
-
-
-#id88459587
-
-#class Get_id(base_client):
-if __name__ == '__main__' :
-    params = {'https://api.vk.com/method/','friends.get','?user_id=88459587&v=5.52'}
-    a = User('https://api.vk.com/method/','users.get','?user_id=88459587&v=5.52');
-    print(a.get_params());
-    print(a.generate_url());
-    print(a._get_data());

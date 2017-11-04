@@ -3,10 +3,11 @@ from Base_Client import BaseClient
 import datetime
 import json
 
+
 class UserId(BaseClient):
     BASE_URL = 'http://api.vk.com/method/'
-    method = 'users.get'
-    http_method = None
+    method = 'users.'
+    http_method = 'get'
 
     def __init__(self, name):
         self.name = name
@@ -19,7 +20,7 @@ class UserId(BaseClient):
         b = a['response'][0]
         return b['id']
 
-    def _get_data(self, method):
+    def _get_data(self, method, http_method):
         response = None
-        response = requests.get(self.BASE_URL + method + '?' + self.get_params()+'&v=5.68')
+        response = requests.get(self.BASE_URL + method + http_method + '?' + self.get_params() + '&v=5.68')
         return self.response_handler(response)
