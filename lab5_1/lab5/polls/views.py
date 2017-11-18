@@ -7,20 +7,36 @@ from django.views import View
 
 # Create your views here.
 
-def function_view(request):
-    return HttpResponse('response from function view')
-
-
-class ExampleClassBased(View):
+class Base(View):
     def get(self, request):
-        return HttpResponse('response from class based view')
+        return render(request, 'Base.html')
 
 
-class ExampleView(View):
+class Home(View):
     def get(self, request):
-        return render(request, 'example.html', {'list': "123"})
+        return render(request, 'home.html')
 
 
-class VarExampleView(View):
+class Bank(View):
     def get(self, request):
-        return render(request, 'var_example.html', {'my_var': '03.11.2017'})
+        data_banks = {
+            'banks': [
+                {'title': 'Альфа', 'id': 1},
+                {'title': 'Сбер', 'id': 2},
+                {'title': 'Северный кредит', 'id': 3},
+                {'title': 'БКС', 'id': 4}
+            ]
+        }
+        return render(request, 'Bank.html', data_banks)
+
+
+class BankView(View):
+    def get(self, request, id):
+        data = {'bank': {'id': id}}
+        return render(request, 'Bank_view.html', data)
+
+
+class Trans(View):
+    def get(self, request):
+        transactions = {'trans': 'Пользователь - транзакция - банк'}
+        return render(request, 'Trans.html', transactions)

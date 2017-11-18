@@ -1,0 +1,169 @@
+<html><head><title>Краткий обзор CSS3 - Программные продукты - Статьи</title>
+
+
+
+<meta name="verify-v1" content="W8cctI+T1WJHocaOeEwaCJTtIiya9F8wtN8SKjdaB4Q=">
+<meta name="yandex-verification" content="7ed7ac4a85b4cfc2">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Last-Modified" content="Wed, 22 Sep 2010 10:27:38 GMT">
+
+<meta name="description" content="В CSS3 появилось много новых возможностей и функций. Вы этой статье мы рассмотрим некоторые из них. К сожаления, на данный момент не все браузеры...">
+
+</head><body>
+
+<h1>Краткий обзор CSS3</h1>
+
+<div class="Small" align="right">Источник: <a target="_blank" href="http://www.interface.ru/iservices/goto.asp?Url=enc:rn%7Ej%40%255lx%5Fw%5Ftdu%24t%5F%7E%25rnwf7Yyi5Yyi9%27x%5F%7Ccom5">vremenno</a></div>
+
+<p></p><p class="articleIntro">В CSS3 появилось много новых
+возможностей и функций. Вы этой статье мы рассмотрим некоторые из них.
+К сожаления, на данный момент не все браузеры поддерживают CSS3 (стоит
+отметить, что ни один браузер не поддерживает его полностью), так что
+использовать новые возможности пока не получиться.</p>
+<h2 class="articleIntro">Границы</h2>
+<h6 class="articleIntro">Закругленные углы</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.border_rounded</span> <span class="rules">{
+<span class="rule"><span class="keyword">background-color</span>:<span class="value"> <span class="hexcolor">#ddccb5</span></span>;</span>
+<span class="rule">-moz-border-radius:<span class="value"> <span class="number">5</span>px</span>;</span>
+<span class="rule">-webkit-border-radius:<span class="value"> <span class="number">5</span>px</span>;</span>
+<span class="rule"><span class="keyword">border</span>:<span class="value"> <span class="number">2</span>px solid <span class="hexcolor">#897048</span></span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">10</span>px</span>;</span>
+<span class="rule"><span class="keyword">width</span>:<span class="value"> <span class="number">310</span>px</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Закругленные углы CSS3" src="css3_examples_files/border_rounded.gif"></p>
+<h6 class="articleIntro">Градиентные границы</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.border_gradient</span> <span class="rules">{
+<span class="rule"><span class="keyword">border</span>:<span class="value"> <span class="number">8</span>px solid <span class="hexcolor">#000</span></span>;</span>
+<span class="rule">-moz-border-bottom-colors:<span class="value"> <span class="hexcolor">#897048</span> <span class="hexcolor">#917953</span> <span class="hexcolor">#a18a66</span> <span class="hexcolor">#b6a488</span> <span class="hexcolor">#c5b59b</span> <span class="hexcolor">#d4c5ae</span> <span class="hexcolor">#e2d6c4</span> <span class="hexcolor">#eae1d2</span></span>;</span>
+<span class="rule">-moz-border-top-colors:<span class="value"> <span class="hexcolor">#897048</span> <span class="hexcolor">#917953</span> <span class="hexcolor">#a18a66</span> <span class="hexcolor">#b6a488</span> <span class="hexcolor">#c5b59b</span> <span class="hexcolor">#d4c5ae</span> <span class="hexcolor">#e2d6c4</span> <span class="hexcolor">#eae1d2</span></span>;</span>
+<span class="rule">-moz-border-left-colors:<span class="value"> <span class="hexcolor">#897048</span> <span class="hexcolor">#917953</span> <span class="hexcolor">#a18a66</span> <span class="hexcolor">#b6a488</span> <span class="hexcolor">#c5b59b</span> <span class="hexcolor">#d4c5ae</span> <span class="hexcolor">#e2d6c4</span> <span class="hexcolor">#eae1d2</span></span>;</span>
+<span class="rule">-moz-border-right-colors:<span class="value"> <span class="hexcolor">#897048</span> <span class="hexcolor">#917953</span> <span class="hexcolor">#a18a66</span> <span class="hexcolor">#b6a488</span> <span class="hexcolor">#c5b59b</span> <span class="hexcolor">#d4c5ae</span> <span class="hexcolor">#e2d6c4</span> <span class="hexcolor">#eae1d2</span></span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">5</span>px <span class="number">5</span>px <span class="number">15</span>px</span>;</span>
+<span class="rule"><span class="keyword">width</span>:<span class="value"> <span class="number">300</span>px</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Градиентные границы CSS3" src="css3_examples_files/border_gradient.gif"></p>
+<h6 class="articleIntro">Тени</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.border_shadow</span> <span class="rules">{
+<span class="rule">-webkit-box-shadow:<span class="value"> <span class="number">10</span>px <span class="number">10</span>px <span class="number">5</span>px <span class="hexcolor">#888</span></span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">5</span>px <span class="number">5</span>px <span class="number">5</span>px <span class="number">15</span>px</span>;</span>
+<span class="rule"><span class="keyword">width</span>:<span class="value"> <span class="number">300</span>px</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Shadow CSS3 Borders" src="css3_examples_files/border_shadow.gif"></p>
+<h6 class="articleIntro">Изображения на границах</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.border_image</span> <span class="rules">{
+<span class="rule">-webkit-border-image:<span class="value"> <span class="function">url(<span class="params">border.png</span>)</span> <span class="number">27</span> <span class="number">27</span> <span class="number">27</span> <span class="number">27</span> round round</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Изображения на границах CSS3" src="css3_examples_files/border_image.gif"></p>
+<h2 class="articleIntro">Текстовые эффекты в CSS3</h2>
+<h6 class="articleIntro">Тень от тектса</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.text_shadow</span> <span class="rules">{
+<span class="rule"><span class="keyword">color</span>:<span class="value"> <span class="hexcolor">#897048</span></span>;</span>
+<span class="rule"><span class="keyword">background-color</span>:<span class="value"> <span class="hexcolor">#fff</span></span>;</span>
+<span class="rule">text-shadow:<span class="value"> <span class="number">2</span>px <span class="number">2</span>px <span class="number">2</span>px <span class="hexcolor">#ddccb5</span></span>;</span>
+<span class="rule"><span class="keyword">font-size</span>:<span class="value"> <span class="number">15</span>px</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Тень от текста CSS3" src="css3_examples_files/text_shadow.png" height="47" width="315"></p>
+<h6 class="articleIntro">Перенос длинных слов</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.text_wrap</span> <span class="rules">{
+<span class="rule">word-wrap:<span class="value"> break-word</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Перенос длинных слов CSS3" src="css3_examples_files/text_wrap.png" height="118" width="255"></p>
+<h6 class="articleIntro">Использование своих шрифтов</h6>
+<div class="articleIntro"><pre><code class="css">@<span class="keyword">font</span>-face <span class="rules">{
+<span class="rule"><span class="keyword">font-family</span>:<span class="value"> <span class="string">'Имя вашего шрифта'</span></span>;</span>
+<span class="rule">src:<span class="value"> <span class="function">url(<span class="params"><span class="string">'http://vremenno.net/files/fonts/font.ttf'</span></span>)</span></span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="Веб шрифты CSS3" src="css3_examples_files/text_webfonts1.jpg" border="0" height="252" width="250"><img class="bordered" alt="Веб шрифты CSS3" src="css3_examples_files/text_webfonts2.jpg" border="0" height="252" width="250"></p>
+<h2 class="articleIntro">Пользовательский интерфейс</h2>
+<h6 class="articleIntro">Растягивание блоков</h6>
+<div class="articleIntro"><pre><code class="smalltalk">.ui_resizable {
+<span class="method">padding:</span> <span class="number">20</span>px;
+<span class="method">border:</span> <span class="number">1</span>px solid;
+<span class="method">resize:</span> both; //или inline
+<span class="method">overflow:</span> auto;
+}</code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="CSS3 Resizing" src="css3_examples_files/ui_resizable.png" height="103" width="349"></p>
+<h6 class="articleIntro">Размеры блоков</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.area</span> <span class="rules">{
+<span class="rule"><span class="keyword">width</span>:<span class="value"> <span class="number">300</span>px</span>;</span>
+<span class="rule"><span class="keyword">border</span>:<span class="value"> <span class="number">10</span>px solid <span class="hexcolor">#ddccb5</span></span>;</span>
+<span class="rule"><span class="keyword">height</span>:<span class="value"> <span class="number">60</span>px</span>;</span>
+}</span>
+
+<span class="class">.boxes</span> <span class="rules">{
+<span class="rule">box-sizing:<span class="value"> border-box</span>;</span>
+<span class="rule"><span class="keyword">width</span>:<span class="value"><span class="number">50</span>%</span>;</span>
+<span class="rule"><span class="keyword">height</span>:<span class="value"> <span class="number">60</span>px</span>;</span>
+<span class="rule"><span class="keyword">text-align</span>:<span class="value"> center</span>;</span>
+<span class="rule"><span class="keyword">border</span>:<span class="value"> <span class="number">5</span>px solid <span class="hexcolor">#897048</span></span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">2</span>px</span>;</span>
+<span class="rule"><span class="keyword">float</span>:<span class="value">left</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="CSS3 размеры блоков" src="css3_examples_files/ui_boxsizing.png" height="91" width="341"></p>
+<h6 class="articleIntro">Выделение</h6>
+<div class="articleIntro"><pre><code class="css"><span class="class">.ui_outline</span> <span class="rules">{
+<span class="rule"><span class="keyword">width</span>:<span class="value"> <span class="number">150</span>px</span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">10</span>px</span>;</span>
+<span class="rule"><span class="keyword">height</span>:<span class="value"> <span class="number">70</span>px</span>;</span>
+<span class="rule"><span class="keyword">border</span>:<span class="value"> <span class="number">2</span>px solid black</span>;</span>
+<span class="rule"><span class="keyword">outline</span>:<span class="value"> <span class="number">2</span>px solid <span class="hexcolor">#897048</span></span>;</span>
+<span class="rule">outline-offset:<span class="value"> <span class="number">15</span>px</span>;</span>
+}</span></code></pre></div>
+<p class="articleIntro"><img class="bordered" alt="CSS3 Выделение" src="css3_examples_files/ui_outline.png" height="144" width="236"></p>
+<h6 class="articleIntro">Мультиколоночность в CSS3</h6>
+<p class="articleIntro">Вот четыре основных свойства, использующиеся для мультиколоночности:</p>
+<div class="articleIntro">
+<ul>
+<li>column-count 
+</li><li>column-width 
+</li><li><nobr>column-gap</nobr> 
+</li><li>column-rule</li></ul></div><pre><code class="css"><span class="class">.multiplecolumns</span> <span class="rules">{
+<span class="rule">-moz-column-width:<span class="value"> <span class="number">130</span>px</span>;</span>
+<span class="rule">-webkit-column-width:<span class="value"> <span class="number">130</span>px</span>;</span>
+<span class="rule">-moz-column-gap:<span class="value"> <span class="number">20</span>px</span>;</span>
+<span class="rule">-webkit-column-gap:<span class="value"> <span class="number">20</span>px</span>;</span>
+<span class="rule">-moz-column-rule:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#ddccb5</span></span>;</span>
+<span class="rule">-webkit-column-rule:<span class="value"> <span class="number">1</span>px solid <span class="hexcolor">#ddccb5</span></span>;</span>
+}</span></code></pre>
+<p><img class="bordered" alt="Мультиколоночность в CSS3" src="css3_examples_files/multiplecolumns.png" height="373" width="349"></p>
+<h6>Объединение колонок</h6><pre><code class="css"><span class="keyword">h2</span> <span class="rules">{
+<span class="rule">column-span:<span class="value"> all</span>;</span>
+}</span></code></pre>
+<p><img class="bordered" alt="Мультиколоночное объединение в CSS3" src="css3_examples_files/multiplecolumns_heading.jpg" height="353" width="349"></p>
+<h2>Фоновые изображения</h2>
+<h6>Размер фоновой картинки</h6><pre><code class="smalltalk">.backgroundsize {
+<span class="method">background:</span> url(/files/images/logo.gif);
+-webkit-background-<span class="method">size:</span> <span class="number">203</span>px <span class="number">45</span>px;
+-khtml-background-<span class="method">size:</span></code></pre>
+<p><img alt="CSS3 изменение фонового изображения" src="css3_examples_files/backgroundresize.png"></p>
+<h6>Комбинирование фоновых изображений</h6><pre><code class="css"><span class="class">.multiplebackgrounds</span> <span class="rules">{
+<span class="rule"><span class="keyword">height</span>:<span class="value"> <span class="number">150</span>px</span>;</span>
+<span class="rule"><span class="keyword">width</span>:<span class="value"> <span class="number">270</span>px</span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">40</span>px <span class="number">20</span>px <span class="number">20</span>px <span class="number">20</span>px</span>;</span>
+<span class="rule"><span class="keyword">background</span>:<span class="value"> <span class="function">url(<span class="params">top.gif</span>)</span> top left no-repeat, <span class="function">url(<span class="params">bottom.gif</span>)</span> bottom left no-repeat, <span class="function">url(<span class="params">middle.gif</span>)</span> left repeat-y</span>;</span>
+}</span></code></pre>
+<p><img class="bordered" alt="CSS3 комбинирование фоновых изображений" src="css3_examples_files/multiplebackgrounds.gif" height="220" width="311"></p>
+<h6>Начало отчета координат фона</h6>
+<p>CSS3 позволяет вам указывать как вычислять положение фоновой
+картинки - от обводки (border), внутреннего отступа (padding) или
+содержания (content).</p>
+<h6>Свойство background-clip</h6>
+<p>Позволяет наложить любое изображение на текст, границы или тень, реализую при этом <nobr>что-то</nobr> похожее на маску в Photoshop.</p><pre><code class="css"><span class="class">.background_clip</span> <span class="rules">{
+<span class="rule"><span class="keyword">background</span>:<span class="value"> <span class="function">url(<span class="params">green-background.png</span>)</span>, black</span>;</span>
+<span class="rule"><span class="keyword">border</span>:<span class="value"> <span class="number">5</span>px solid black</span>;</span>
+<span class="rule"><span class="keyword">padding</span>:<span class="value"> <span class="number">5</span>px</span>;</span>
+<span class="rule">-webkit-background-clip:<span class="value"> text, border</span>;</span>
+<span class="rule"><span class="keyword">color</span>:<span class="value"> transparent</span>;</span>
+}</span></code></pre>
+<p><img class="bordered" alt="background-clip CSS3" src="css3_examples_files/css3.jpg" height="200" width="400"></p>
+<h2>Селекторы</h2>
+<h6>Выбор по свойствам элемента</h6><pre><code class="css"><span class="attr_selector">[att^=val]</span>
+элемент, значение свойства (att) которого начинается с 'val'.
+
+<span class="attr_selector">[att$=val]</span>
+значение свойства (att) которого заканчивается на 'val'.
+
+<span class="attr_selector">[att*=val]</span>
+элемент, значение свойства (att) которого содержит по крайней мере одно вхождение подстроки 'val'.</code></pre>
+
+</body></html>

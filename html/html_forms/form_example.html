@@ -1,0 +1,213 @@
+<HTML>
+<BODY>
+    <form action="http://somesite.com/script.asp" method="GET" oninput="range1value.value = range1.valueAsNumber">
+
+        <fieldset>
+            <legend align=center>Пользователь</legend>
+
+            <!-- Явное связывание метки через атрибут for -->
+            <label for="login">Имя пользователя: </label>
+            <input type="text" name="login" value=user1 size=15 maxlength=10/>
+
+            <hr />
+             
+            <label for="login">Использование атрибута placeholder: </label>
+            <input type="text" name="placeholder1" placeholder="Введите текст в это поле" size=40 maxlength=40/>
+
+            <hr />
+
+            <!-- Неявное связывание метки -->
+            <label for="pass">
+                Пароль:
+                <input type="password" name="pass" size=15 maxlength=10/>
+            </label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Другие элементы</legend>
+
+            <label for="chb">Флажок: </label>
+            <input type="checkbox" name="chb" checked>
+
+            <hr />
+
+            <!-- группа радиокнопок -->
+            <label for="comp">Компьютер: </label>
+            <input type="radio" name="comp" value="P3" checked>Pentium III</input>
+            <input type="radio" name="comp" value="P4">Pentium IV</input>
+
+            <hr />
+
+            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+            <!-- не группа -->
+            <!--
+            <LABEL for="comp">Компьютер: </LABEL>
+            <INPUT type="radio" name="comp1" value="P3"> Pentium III </INPUT>
+            <INPUT type="radio" name="comp2" value="P4"> Pentium IV </INPUT><BR>
+            -->
+            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+            <input type="image" name="imgsubmit" src=image.gif
+                   alt="Графическая кнопка отправки" ismap>
+
+            <hr />
+
+            <input type="button" name="button1" value="Кнопка"
+                   onclick="alert('Кнопка нажата');">
+
+            <hr />
+
+            <input type="hidden" name="Hname" value="HValue" />
+
+            <input type="file" name="File1" size=20 />
+
+            <hr />
+
+            <button name="button2" type="button" onclick="alert('Кнопка нажата');">
+                Текст<br><img src="image.gif" alt="Изображение на кнопке"><br>Текст
+            </button>
+
+            <hr />
+
+            <label>Выбор цвета:</label>
+            <input type="color" name="color1" />
+
+            <hr />
+
+            <label>Адрес электронной почты:</label>
+            <input type="email" name="email1" />
+
+            <hr />
+
+            <label>Телефон:</label>
+            <input type="tel" name="tel1" />
+
+            <hr />
+
+            <label>Адрес URL:</label>
+            <input type="url" name="url1" />
+
+            <hr />
+
+            <label>Ввод целого числа:</label>
+            <input type="number" name="number1" min="1" max="10" />
+
+            <hr />
+
+            <label>Ввод целого числа в диапазоне:</label>
+            <input type="range" name="range1" min="0" max="100" step="5" value="50" />
+            <!-- Элемент output используется для вывода значений переменных -->
+            <output name="range1value" for="range1">1</output>
+
+
+            <fieldset>
+
+                <legend>Поля для ввода даты и времени</legend>
+
+                <label>Дата:</label>
+                <input type="date" name="date1" />
+
+                <hr />
+
+                <label>Дата и время с учетом часового пояса:</label>
+                <input type="datetime" name="datetime1" />
+
+                <hr />
+
+                <label>Дата и время без учета часового пояса:</label>
+                <input type="datetime-local" name="datetime-local1" />
+
+                <hr />
+
+                <label>Год и месяц:</label>
+                <input type="month" name="month1" />
+
+                <hr />
+
+                <label>Год и неделя:</label>
+                <input type="week" name="week1" />
+
+                <hr />
+
+                <label>Время:</label>
+                <input type="time" name="time1" />
+
+            </fieldset>
+
+
+            <label>
+                Многострочный текст:<br>
+                <textarea name="text1" rows="10" cols="50">
+                    Первая строка.
+                    Вторая строка.
+                </textarea>
+            </label>
+
+            <hr />
+
+            <!-- Список -->
+            <label>
+                Список:
+                <select size="3" multiple name="comp_select">
+                    <option selected value="P1">Pentium</option>
+                    <option selected value="P2">Pentium II</option>
+                    <option value="P3">Pentium III</option>
+                    <option value="P4">Pentium IV</option>
+                </select>
+            </label>
+
+            <hr />
+
+            <!-- Выпадающий список -->
+            <label>
+                Выпадающий список:
+                <select size="1" name="comp_combobox">
+                    <option value="P1">Pentium</option>
+                    <option value="P2">Pentium II</option>
+                    <option selected value="P3">Pentium III</option>
+                    <option value="P4">Pentium IV</option>
+                </select>
+            </label>
+
+            <hr />
+
+            <!-- Выпадающий список с optgroup -->
+            <label>
+                Выпадающий список с optgroup:
+                <select size="1" name="comp_combobox">
+                    <optgroup label="old pentiums">
+                        <option value="P1">Pentium</option>
+                        <option value="P2">Pentium II</option>
+                    </optgroup>
+                    <optgroup label="new pentiums">
+                        <option selected value="P3">Pentium III</option>
+                        <option value="P4">Pentium IV</option>
+                    </optgroup>
+                </select>
+            </label>
+
+            <hr />
+           
+
+            <!-- Выпадающий список -->
+            <label>
+                Использование datalist:
+                <input type="text" name="datalist1" list="comp_combobox_datalist" size=40 maxlength=40 />
+                <datalist id="comp_combobox_datalist">
+                    <option value="P1">Pentium</option>
+                    <option value="P2">Pentium II</option>
+                    <option selected value="P3">Pentium III</option>
+                    <option value="P4">Pentium IV</option>
+                </datalist>
+            </label>
+
+            <hr />
+
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Очистить">
+
+        </fieldset>
+    </form>
+</BODY>
+</HTML>

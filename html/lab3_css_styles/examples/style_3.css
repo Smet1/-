@@ -1,0 +1,113 @@
+h1.header {
+	text-align: center;
+    font-size: 1.5em;
+    font-weight: normal;
+	font-family: Arial;
+    color: white;
+    background-color: #0990EE;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	-moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+P {color:red; font-family:Arial;}
+
+/* Группировка */
+H1, H2, H3 { font-family:Arial; font-size:20pt; }
+
+/* Класс в качестве селектора */
+P.gray_p {color:gray;}
+.green {color:green;}
+
+.class_color {color:skyblue;}
+.class_background {background-color: aqua;}
+.class_border {border: thick ridge skyblue;}
+
+/* ID в качестве селектора */
+P#blue_1 {color:blue;}
+
+/* Контекстные селекторы */
+UL LI    { font-size: large; }
+UL UL LI { font-size: small; }
+
+DIV.context_class P #context_id {color:blue;}
+
+H1 B, H3 B I {color:brown;}
+
+/* Универсальный селектор */
+*.context_class2 P *#context_id2 {color:blue;}
+
+/* Контекстные селекторы, дополнительные возможности */
+*.context_class3 I {border: thin ridge red;}
+.context_class4 > I {border: thin ridge green;}
+I.prev_element + I {border: thin ridge blue;}
+P.prev_element I.prev_element ~ I {border: thin ridge brown;}
+
+/* Использование атрибутов в селекторе */
+div.example_attrs div[qwerty] {background-color: green;}
+div.example_attrs div[attr=value] {background-color: green;}
+div.example_attrs div[attr1=value1][attr2=value2] {background-color: green;}
+div.example_attrs div[attr~=word2] {background-color: green;}
+div.example_attrs div[lan|=fr] {background-color: green;}
+
+div.example_attrs div[attr^=begin] {background-color: green;}
+div.example_attrs div[attr$=end] {background-color: green;}
+div.example_attrs div[attr*=substr] {background-color: green;}
+
+/* Псевдоклассы*/
+A:link { color: red } /* Стиль обычной гиперссылки */ 
+A:visited { color: blue } /* Стиль посещенной гиперссылки */ 
+A:active { color: green } /* Стиль последней нажатой гиперссылки */ 
+A:hover { color: yellow } /* Стиль гиперссылки, на которую установлен курсор */ 
+
+DIV A.class_hover:hover { font-weight:bold; color:olive; }
+
+P.hover_p:hover {border: thick dotted green;}
+
+input.class_input:hover {border: thick dotted green;}
+input.class_input:focus {color: green;}
+
+input.ed:enabled {background-color: green;}
+input.ed:disabled {background-color: red;}
+
+*.ed2:checked {color: green;}
+
+table.table_class tr:nth-child(odd) {background-color: skyblue;}
+table.table_class tr:nth-child(even) {background-color: silver;}
+
+/* нечетные элементы, то же что и odd */
+ul.list_class li:nth-child(2n+1) {background-color: skyblue;} 
+/* четные элементы, то же что и even */
+ul.list_class li:nth-child(2n) {background-color: silver;} 
+
+/* кратность 4 */
+ul.list_class2 li:nth-child(4n) {background-color: skyblue;} 
+ul.list_class2 li:nth-child(4n+1) {background-color: silver;} 
+ul.list_class2 li:nth-child(4n+2) {background-color: red;} 
+ul.list_class2 li:nth-child(4n+3) {background-color: green;} 
+
+ul.list_class3 li:nth-last-child(4n) {background-color: skyblue;} 
+ul.list_class3 li:nth-last-child(4n+1) {background-color: silver;} 
+ul.list_class3 li:nth-last-child(4n+2) {background-color: red;} 
+ul.list_class3 li:nth-last-child(4n+3) {background-color: green;} 
+
+ul.list_class4 li:first-child {background-color: skyblue;} 
+ul.list_class4 li:last-child {background-color: silver;} 
+
+/* Псевдоэлементы */
+P.FIRST::first-line { color:green } 
+P.FIRST::first-letter { color:blue; font-size: 200%; float: left } 
+
+p.note::before { content: "добавлено перед строкой: " }
+p.note::after { content: " :добавлено после строки" }
+
+p.note2:hover::before { content: "ВЫДЕЛЕНО( " }
+p.note2:hover::after { content: " )" }
+
+

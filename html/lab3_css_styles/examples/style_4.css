@@ -1,0 +1,35 @@
+
+/* Фоновое изображение */
+BODY
+{
+	background-image: url(logo_cit.gif);
+	background-repeat: no-repeat; /*repeat;*/
+	background-attachment: fixed; /*scroll;*/
+	background-position: bottom left;
+}
+
+/* Рамка */
+P.div_border
+{
+	border: thick ridge #ADD8E6;
+	margin : 10px;
+	padding : 10px;
+}
+
+/* Список */
+UL.UL_CLASS
+{
+	list-style-image: url(globe.gif);
+	list-style-position: outside;
+}
+
+
+/* Полосы прокрутки */
+BODY
+{
+	scrollbar-3dlight-color : Blue;
+	scrollbar-arrow-color : Blue;
+	scrollbar-base-color : White;
+	scrollbar-face-color : #F0F8FF;
+	scrollbar-highlight-color : Blue;
+}

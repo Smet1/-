@@ -1,0 +1,209 @@
+<HEAD>
+<LINK href="style_3.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+
+<H1 class=header>Группировка</H1>
+<H1>H1</H1>
+<H2>H2</H2>
+<H3>H3</H3>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Наследование свойств</H1>
+<P>Простой текст <I> курсив </I> простой текст.</P>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Класс в качестве селектора</H1>
+<P class=gray_p><B>Серый текст</B></P>
+
+<P class=green><B>Зеленый текст</B></P>
+<H3 class=green>Зеленый заголовок</H3>
+
+<P class="class_color class_background class_border">Использование нескольких классов</P>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>ID в качестве селектора</H1>
+<P id=blue_1><B>Текст</B></P>
+<P id=blue_1 class=green><B>Текст</B></P>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Контекстные селекторы</H1>
+<UL>
+<LI>1
+	<UL>
+		<LI>11
+		<LI>12
+	</UL>
+<LI>2
+</UL>
+
+<DIV class=context_class>
+<P><I id=context_id>контекст</I>
+</DIV>
+
+<H1>H1 <B>H1</B> H1</H1>
+<H3>H3 <B><I>H3</I></B> H3</H3>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Универсальный селектор</H1>
+<DIV class=context_class2>
+<P><I id=context_id2>универсальный селектор</I>
+</DIV>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Контекстные селекторы, дополнительные возможности</H1>
+<DIV class=context_class3>
+<P><I>Вложенный элемент в красной рамке</I></P>
+</DIV>
+
+<DIV class=context_class3>
+<I>Непосредственно вложенный элемент в красной рамке</I>
+</DIV>
+
+<DIV class=context_class4>
+<P><I>Вложенный элемент (не в рамке)</I></P>
+</DIV>
+
+<DIV class=context_class4>
+<I>Непосредственно вложенный элемент в зеленой рамке</I>
+</DIV>
+
+<P>
+<I class=prev_element>Первый элемент</I>
+<I >Второй элемент (в синей рамке)</I>
+<I >Третий элемент</I>
+</P>
+
+<P class=prev_element>
+<I class=prev_element>Первый элемент</I>
+<I >Второй элемент (в коричневой рамке)</I>
+<I >Третий элемент (в коричневой рамке)</I>
+</P>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Использование атрибутов в селекторе</H1>
+<DIV class=example_attrs>
+
+<DIV qwerty="какое-то значение">DIV qwerty="некоторое значение"</DIV>
+<DIV attr="value">DIV attr="value"</DIV>
+<DIV attr1="value1" attr2="value2">attr1="value1" attr2="value2"</DIV>
+<DIV attr="word1 word2 word3">attr="word1 word2 word3"</DIV>
+<DIV lan="fr-be">DIV lan="fr-be"</DIV>
+
+<DIV attr="begin_!!!!!!!">attr="begin_!!!!!!!"</DIV>
+<DIV attr="BEGIN_!!!!!!!">attr="BEGIN_!!!!!!!" (не совпадает регистр символов)</DIV>
+<DIV attr="!!!!!!!_end">attr="!!!!!!!_end"</DIV>
+<DIV attr="!!!_substr_!!!">attr="!!!_substr_!!!"</DIV>
+
+</DIV>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Псевдоклассы</H1>
+<P><A href="unvisited.html">111</A>
+<P><A href="2_1.html">222</A>
+<P><A href="2_2.html">333</A>
+<P><A href="2_3.html">444</A>
+
+<P>
+<DIV>
+<A class=class_hover href="2_1.html">hover</A>
+</DIV>
+
+<P class=hover_p>Параграф текста</P>
+
+<form>
+<input class=class_input type="text" value="поле ввода" width="50"/>
+<br>
+<br>
+<input class="ed" type="text" value="enabled" width="50"/>
+<br>
+<input class="ed" disabled type="text" value="disabled" width="50"/>
+<br>
+<br>
+<LABEL for="comp">Компьютер: </LABEL>
+<INPUT class="ed2" type="radio" name="comp" value="P2" checked>Pentium II</INPUT>
+<INPUT class="ed2" type="radio" name="comp" value="P3">Pentium III</INPUT>
+<INPUT class="ed2" type="radio" name="comp" value="P4">Pentium IV</INPUT>
+<br>
+<br>
+<LABEL for="comp">Компьютер: </LABEL>
+<INPUT class="ed2" type="checkbox" name="comp21" value="P21" checked>Pentium II</INPUT>
+<INPUT class="ed2" type="checkbox" name="comp22" value="P22">Pentium III</INPUT>
+<INPUT class="ed2" type="checkbox" name="comp23" value="P23">Pentium IV</INPUT>
+</form>
+
+<table border="1" class=table_class>
+	<tr><td>строка 1</td></tr> 
+	<tr><td>строка 2</td></tr> 
+	<tr><td>строка 3</td></tr> 
+	<tr><td>строка 4</td></tr> 
+</table>
+
+<ul class=list_class>
+<li>1
+<li>2
+<li>3
+<li>4
+<li>5
+<li>6
+<li>7
+<li>8
+<li>9
+<li>10
+</ul>
+
+<ul class=list_class2>
+<li>1
+<li>2
+<li>3
+<li>4
+<li>5
+<li>6
+<li>7
+<li>8
+<li>9
+<li>10
+</ul>
+
+<ul class=list_class3>
+<li>1
+<li>2
+<li>3
+<li>4
+<li>5
+<li>6
+<li>7
+<li>8
+<li>9
+<li>10
+</ul>
+
+<ul class=list_class4>
+<li>1
+<li>2
+<li>3
+<li>4
+<li>5
+</ul>
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<H1 class=header>Псевдоэлементы</H1>
+<P class="FIRST">
+текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст 
+</P>
+
+<P class=note>строка</P>
+
+<P class=note2>строка</P>
+
+</BODY>

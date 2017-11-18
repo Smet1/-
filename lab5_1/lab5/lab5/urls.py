@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from polls.views import function_view, ExampleClassBased, ExampleView, VarExampleView
+from polls.views import Base, Home, Bank, Trans, BankView
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^function_view/', function_view),
-    url(r'^class_based_view/', ExampleClassBased.as_view()),
-    url(r'^example_view/', ExampleView.as_view()),
-    url(r'^var_example_view/', VarExampleView.as_view()),
-]
+    url(r'^admin/$', admin.site.urls),
+    url(r'^base/$', Base.as_view(), name='base'),
+    url(r'^home/$', Home.as_view(), name='home'),
+    url(r'^bank/(?P<id>\d+)$', BankView.as_view(), name='bank_url'),
+    url(r'^bank/$', Bank.as_view(), name='bank'),
+    url(r'transactions/$', Trans.as_view(), name='trans'),
 
+]

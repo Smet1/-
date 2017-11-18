@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <meta charset="UTF-8">
+
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block head %}{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/home_style.css' %}">
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src ="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        $('li.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+    });
+</script>
+
+
+
+<nav class="navbar navbar-inverse bg-faded navbar-fixed-top" style="height:20px">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Пользователь - транзакция - банк</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class id='Home'><a  href="{% url 'home' %}">Home</a></li>
+      <li class id='Bank'><a  href="{% url 'bank' %}">Banks</a></li>
+      <li class id='Trans'><a href="{% url 'trans' %}">Transactions</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div>
+    {% block content %}{% endblock %}
+</div>
+
+
+</body>
+</html>

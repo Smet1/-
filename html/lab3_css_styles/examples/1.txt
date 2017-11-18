@@ -1,0 +1,5 @@
+
+<FONT face=Arial color=red ><P>Текст</P></FONT>
+
+
+P {color:red; font-family:Arial;} /* Комментарий */
