@@ -1,0 +1,10 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+    Банк № {{ banks.id}}
+{% endblock %}
+
+{% block content %}
+    <div style="margin-top: 40pt">Название банка: {{ banks.name }}<br/> Адрес: {{ banks.address }}</div>
+    <div class="bank_class">Страница банка № {{ banks.idBanks }}</div>
+{% endblock %}
