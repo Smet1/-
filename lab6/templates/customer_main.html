@@ -1,11 +1,11 @@
 {% extends 'Base.html' %}
 
-{% block title %}Банки{% endblock %}
+{% block title %}Пользователи{% endblock %}
 {% block content %}
     <ul class="none">
         <ul>
-            {% for bank in banks %}
-                <li><a href={% url 'banks_detail' bank.idBanks %}>{{ bank.name }} </a></li>
+            {% for customer in customers %}
+                <li><a href={% url 'customers_detail' customer.idCustomer %}>{{ customer.fio }} </a></li>
             {% empty %}
                 Баааа, да тут пусто...
             {% endfor %}

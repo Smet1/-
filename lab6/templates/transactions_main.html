@@ -1,0 +1,11 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+    если ты не ты, то не смотри
+{% endblock %}
+
+{% block content %}
+    <div style="margin-top: 40pt"> Все переводы: </div>
+
+    {% include 'transactions.html' with transactions=trans %}
+{% endblock %}

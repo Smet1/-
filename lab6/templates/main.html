@@ -1,0 +1,14 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+    Домашняя страница
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class="main_text">
+        Шалом
+    </div>
+    <p style="text-align: center;"><img src={% static 'gif/dab.gif' %} alt="DAB" width="30%"></p>
+{% endblock %}

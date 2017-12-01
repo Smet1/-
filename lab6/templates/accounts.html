@@ -1,0 +1,17 @@
+
+{% block content %}
+    <ul>
+        <ul>
+            {% for acct in accounts %}
+                <br/> id Счета: {{ acct.idAccounts }}
+                <br/> id Банка: {{ acct.bankId_FK.idBanks }}
+                      Название: {{ acct.bankId_FK.name }}
+                <br/> Тип: {{ acct.type }}
+                <br/> Сумма: {{ acct.money }} {{ acct.currency }}
+                <hr width="40%" align="left">
+            {% empty %}
+                Баааа, да тут пусто...
+            {% endfor %}
+        </ul>
+    </ul>
+{% endblock %}

@@ -1,4 +1,53 @@
+*.none
+{
+    margin-top: 40pt !important;
+}
+
 *.bank_class
 {
-    margin-top: 6% !important;
+    margin-top: 80pt !important;
+    width: 50%;
+    padding: 5px 20px;
+    float: left;
+}
+
+*.bank_comments
+{
+    <!--margin-top: 40pt !important;-->
+    width: 70%;
+    margin: 20px;
+    padding: 40px 40px 5px;
+    float: left;
+}
+
+*.fixed_bot
+{
+    position: fixed;
+    bottom: 0;
+    right: 1%;
+}
+
+@font-face
+    {
+        font-family: "JazzBall";
+        src: url('/static/fonts/10653.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+*.main_text
+{
+    font-family: "Monotype Corsiva", cursive;
+    font-size: 40pt;
+    margin-top: 70pt;
+    text-align: center;
+
+    <!--font-family: "JazzBall", sans-serif;-->
+}
+
+*.img_bank
+{
+    margin-top: 0px;
+    text-align: center;
+    padding: 20px;
 }

@@ -1,0 +1,10 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+    если ты не ты, то не смотри
+{% endblock %}
+{% block content %}
+    <div style="margin-top: 40pt"> Все счета: </div>
+
+    {% include 'accounts.html' with accounts=accts %}
+{% endblock %}

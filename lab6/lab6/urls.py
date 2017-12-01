@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from myapp.views import Bank, BankInDetail
+from myapp.views import Bank, BankInDetail, Customer, CustomerInDetail, Home, CustomerAccounts, CustomerTransactions,\
+    registration, vlog
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^home/$', Home.as_view(), name='home'),
+
     url(r'^bank/$', Bank.as_view(), name='banks_main'),
-    url(r'^bank/(?P<id>\d+)/$', BankInDetail.as_view(), name='banks_detail')
+    url(r'^bank/(?P<id>\d+)/$', BankInDetail.as_view(), name='banks_detail'),
+    url(r'^customers/$', Customer.as_view(), name='customers_main'),
+    url(r'^customers/(?P<id>\d+)/$', CustomerInDetail.as_view(), name='customers_detail'),
+    url(r'^accounts/$', CustomerAccounts.as_view(), name='accts'),
+    url(r'^transactions/$', CustomerTransactions.as_view(), name='trans'),
+    url(r'^reg/$', registration, name='reg'),
+    url(r'^login/$', vlog.as_view(), name='login')
 ]

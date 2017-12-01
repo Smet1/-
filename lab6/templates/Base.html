@@ -29,15 +29,16 @@
 
 <nav class="navbar navbar-inverse bg-faded navbar-fixed-top" style="height:20px">
     <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand">Пользователь - транзакция - банк</a>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home' %}">В начало</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class id='Customer'><a  href="{% url 'customers_main' %}">Customers</a></li>
+            <li class id='Bank'><a  href="{% url 'banks_main' %}">Banks</a></li>
+            <li class id='Transactions'><a href="{% url 'trans' %}">Transactions</a></li>
+            <li class id='Accounts'><a href="{% url 'accts' %}">Accounts</a></li>
+        </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li class id='Home'><a  href="{% url 'banks_main' %}">Home</a></li>
-      <li class id='Bank'><a  href="{% url 'banks_main' %}">Banks</a></li>
-      <li class id='Trans'><a href="{% url 'banks_main' %}">Transactions</a></li>
-    </ul>
-  </div>
 </nav>
 
 <div>
