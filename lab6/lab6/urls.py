@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from myapp.views import Bank, BankInDetail, Customer, CustomerInDetail, Home, CustomerAccounts, CustomerTransactions,\
-    registration, vlog
+    reg_view, auth_view, logout_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^customers/(?P<id>\d+)/$', CustomerInDetail.as_view(), name='customers_detail'),
     url(r'^accounts/$', CustomerAccounts.as_view(), name='accts'),
     url(r'^transactions/$', CustomerTransactions.as_view(), name='trans'),
-    url(r'^reg/$', registration, name='reg'),
-    url(r'^login/$', vlog.as_view(), name='login')
+    url(r'^reg/$', reg_view, name='reg'),
+    url(r'^auth/$', auth_view, name='auth'),
+    url(r'^logout/$', logout_view, name='logout')
 ]

@@ -7,8 +7,22 @@
 {% load static %}
 
 {% block content %}
+
+
     <div class="main_text">
-        Шалом
+            {% if usr_type %}
+                Шалом {{ usr_type }} {{ usr_id.idCustomer }}
+                <p style="text-align: center;">
+                    <img src={% static 'gif/dab.gif' %} alt="DAB" width="30%">
+                </p>
+            {% else %}
+                <p style="text-align: center;">
+                    <a href="{% url 'auth' %}" title="войти">
+                        <img src={% static 'img/login.png' %} alt="Тызаходи,есличто" width="30%">
+                    </a>
+                </p>
+            {% endif %}
+
     </div>
-    <p style="text-align: center;"><img src={% static 'gif/dab.gif' %} alt="DAB" width="30%"></p>
+
 {% endblock %}

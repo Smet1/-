@@ -15,14 +15,15 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src ="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function()
     {
         $('li.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
     });
+
 </script>
 
 
@@ -33,10 +34,20 @@
             <a class="navbar-brand" href="{% url 'home' %}">В начало</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class id='Customer'><a  href="{% url 'customers_main' %}">Customers</a></li>
-            <li class id='Bank'><a  href="{% url 'banks_main' %}">Banks</a></li>
+            <li class id='Customer'><a href="{% url 'customers_main' %}">Customers</a></li>
+            <li class id='Bank'><a href="{% url 'banks_main' %}">Banks</a></li>
             <li class id='Transactions'><a href="{% url 'trans' %}">Transactions</a></li>
             <li class id='Accounts'><a href="{% url 'accts' %}">Accounts</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if usr_type %}
+                <p class="navbar-text">Вы вошли как <a href="{% url 'customers_detail' usr_id.idCustomer %}">{{ user }}</a></p>
+
+                <li><a class href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            {% else %}
+                <li><a class href="{% url 'reg' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{% url 'auth' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
