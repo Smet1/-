@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from myapp.views import Bank, BankInDetail, Customer, CustomerInDetail, Home, CustomerAccounts, CustomerTransactions,\
-    reg_view, auth_view, logout_view
+    reg_view, auth_view, logout_view, registration1
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
