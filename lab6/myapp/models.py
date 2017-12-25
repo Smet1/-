@@ -73,7 +73,6 @@ class TransactionsModel(models.Model):
         related_name='customerId_to',
         db_column='CustomerId_to'
     )
-
     accountId_to = models.ForeignKey(
         AccountModel,
         related_name='accountId_to',

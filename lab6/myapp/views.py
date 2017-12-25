@@ -6,8 +6,8 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 from myapp.models import BankModel, CustomerModel, AccountModel, TransactionsModel
-from myapp.forms import UserRegistrationForm, UserAuthenticationForm
-
+from myapp.forms import UserRegistrationForm, UserAuthenticationForm, AddTransactionForm
+import datetime
 
 def user_type(request):
     if not request.user.is_authenticated:
@@ -165,6 +165,28 @@ def auth_view(request):  # авторизация
     # print(form.errors.as_data())
     print(errors)
     return render(request, 'authentication.html', {'form': form, 'errors': errors})
+
+
+def add_transaction(request):
+    print('add_open')
+    data, usr_id = user_type(request)
+    print(usr_id)
+    acc_info = AccountModel.objects.filter(customerId_FK=int(usr_id.idCustomer))
+    errors = []
+    id_cus_from = usr_id.idCustomer  # CustomerId_from
+    time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # время сейчас
+
+    if request.method == 'POST':
+        form = AddTransactionForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect('/transactions/')
+
+    else:
+        form = AddTransactionForm()
+
+    return render(request, 'registration.html', {'form': form, 'acc': acc_info})
+
 
 
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomerModel
+from .models import CustomerModel, TransactionsModel
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -34,3 +34,20 @@ class UserAuthenticationForm(forms.ModelForm):
         super(UserAuthenticationForm, self).__init__(*args, **kwargs)
         self.fields['login'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Логин'})
         self.fields['password'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Пароль'})
+
+
+class AddTransactionForm(forms.ModelForm):
+    class Meta:
+        model = TransactionsModel
+        exclude = ['customerId_from', 'customerId_to']
+
+    # customerId_from = forms.IntegerField(label='customerId_from')
+    # customerId_to = forms.IntegerField(label='customerId_to')
+
+    accountId_to = forms.IntegerField(label='accountId_to')
+    accountId_from = forms.IntegerField(label='accountId_from')
+
+    money = forms.IntegerField(label='money')
+    currency = forms.CharField(max_length=10, label='currency')
+    comment = forms.CharField(max_length=100, label='comment', empty_value=True)
+    time = forms.DateField(label='date')

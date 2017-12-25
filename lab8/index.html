@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lab 8 JS</title>
+    <style type="text/css">
+        .div1{
+            width: 35pt;
+            height: 70pt;
+            text-align: right;
+        }
+        .div2{
+            position: relative;
+            top: -83pt;
+            left: 40pt;
+            width: 300pt;
+            height: 70pt;
+        }
+        .p1{
+            height: 18px;
+        }
+        .div_but{
+            position: relative;
+            top: -72pt;
+            left: 123pt;
+        }
+        .graph{
+            position: relative;
+            top: -72pt;
+            height: 300px;
+            width: 300pt;
+            <!--left: 123pt;-->
+        }
+    </style>
+
+</head>
+
+<body>
+    <form>
+        <div class="div1">
+            <p>
+                <b>From:</b>
+            </p>
+            <p>
+                <b>To:</b>
+            </p>
+            <p>
+                <b>Fun:</b>
+            </p>
+        </div>
+        <div class="div2">
+            <p class="p1">
+                <input class="from" type="text" size="20">
+            </p>
+            <p class="p1">
+                <input class="to" type="text" size="20">
+            </p>
+            <p class="p1">
+                <input class="fun" type="text" size="20">
+            </p>
+        </div>
+        <div class="div_but">
+            <button type="button" class="button">DO IT!!!</button>
+        </div>
+        <div class="graph">
+            <script src= "https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+            <script src= "https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.js" ></script>
+            <script src="index.js"></script>
+        </div>
+    </form>
+</body>
+</html>

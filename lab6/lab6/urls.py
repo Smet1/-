@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from myapp.views import Bank, BankInDetail, Customer, CustomerInDetail, Home, CustomerAccounts, CustomerTransactions,\
-    reg_view, auth_view, logout_view, registration1
+    reg_view, auth_view, logout_view, registration1, add_transaction
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^transactions/$', CustomerTransactions.as_view(), name='trans'),
     url(r'^reg/$', reg_view, name='reg'),
     url(r'^auth/$', auth_view, name='auth'),
-    url(r'^logout/$', logout_view, name='logout')
+    url(r'^logout/$', logout_view, name='logout'),
+    url(r'^add/$', add_transaction, name='add_trans')
 ]
