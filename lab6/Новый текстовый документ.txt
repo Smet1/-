@@ -1,0 +1,31 @@
+$(document).ready(
+        function () {
+            $('#transaction-form').validate({
+                rules: {
+                    account_to: {
+                        required: true
+                    },
+                    account_from: {
+                        required: true
+                    },
+                    money: {
+                        required: true
+                    }
+                },
+                massages: {
+                    account_to: {
+                        required: 'Заполните это поле'
+                    },
+                    account_from: {
+                        required: 'Заполните это поле'
+                    },
+                    money: {
+                        required: 'Заполните это поле'
+                    }
+                },
+                success: function(){
+                    $("#transaction-form").attr('disabled', false);
+                    send_transaction()
+                }
+            })
+        }

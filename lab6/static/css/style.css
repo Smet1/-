@@ -5,7 +5,7 @@
 
 *.bank_class
 {
-    margin-top: 80pt !important;
+    margin-top: 0 !important;
     width: 50%;
     padding: 5px 20px;
     float: left;
@@ -37,8 +37,8 @@
 
 *.main_text
 {
-    font-family: "Monotype Corsiva", cursive;
-    font-size: 40pt;
+    <!--font-family: "Monotype Corsiva", cursive;-->
+    <!--font-size: 40pt;-->
     margin-top: 70pt;
     text-align: center;
 
@@ -50,4 +50,9 @@
     margin-top: 0px;
     text-align: center;
     padding: 20px;
+}
+
+*.content
+{
+    margin: 10% !important;
 }

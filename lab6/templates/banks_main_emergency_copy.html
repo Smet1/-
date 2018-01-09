@@ -1,0 +1,14 @@
+{% extends 'Base.html' %}
+
+{% block title %}Банки{% endblock %}
+{% block content %}
+    <ul class="none">
+        <ul>
+            {% for bank in banks %}
+                <li><a href=#>{{ bank.name }} </a></li>
+            {% empty %}
+                Баааа, да тут пусто...
+            {% endfor %}
+        </ul>
+    </ul>
+{% endblock %}

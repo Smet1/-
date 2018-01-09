@@ -1,16 +1,14 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View, ListView
 from myapp.models import BankModel, CustomerModel, AccountModel, TransactionsModel
 from myapp.forms import UserRegistrationForm, UserAuthenticationForm, AddTransactionForm
 import math
-import datetime, time
-import json
+import datetime
 from django.db.models import F
 
 
@@ -37,17 +35,17 @@ class Bank(ListView):
     model = BankModel
     template_name = 'banks_main.html'
     context_object_name = 'banks'
-    # paginate_by = 3
+    paginate_by = 3
 
     def get(self, request, page=1):
 
         usr_type, usr_id = user_type(request)
 
-        # Количество банков на странице
-        elements_on_page = 2
+        # Количество продуктов на странице
+        elements_on_page = 9
 
         # Количество банков в строке
-        elements_in_row = 1
+        elements_in_row = 3
 
         banks = BankModel.objects.all()
         pages_count = math.ceil(len(banks) / elements_on_page)
@@ -59,21 +57,19 @@ class Bank(ListView):
         index = 1
         rows = []
         row = []
-        for bank in banks:
-            row.append(bank)
-            index += 1
-            '''
+        for product in banks:
+            row.append(product)
+
             if index == elements_in_row:
                 rows.append(row)
                 row = []
                 index = 1
             else:
                 index += 1
-            '''
+
         if len(row) > 0:
             rows.append(row)
 
-        # page += 1
         return render(request, 'banks_main.html', {'banks': rows, 'page': page, 'pages_count': pages_count,
                                                    'usr_type': usr_type, 'usr_id': usr_id})
     '''def get(self, request):
@@ -97,9 +93,7 @@ class Customer(View):
 
 
 class CustomerInDetail(View):
-    def get(self, request):
-        usr_type, usr_id = user_type(request)
-        id = int(usr_id.idCustomer)
+    def get(self, request, id):
         data = CustomerModel.objects.get(idCustomer=int(id))
         data1 = AccountModel.objects.filter(customerId_FK=int(id))
         data_to = []
@@ -108,6 +102,7 @@ class CustomerInDetail(View):
             data_from += TransactionsModel.objects.filter(accountId_from=x.idAccounts)
             data_to += TransactionsModel.objects.filter(accountId_to=x.idAccounts)
 
+        usr_type, usr_id = user_type(request)
         return render(request, 'customer_detail.html', {'customers': data, 'accts': data1, 'trans_to': data_to,
                                                         'trans_from': data_from, 'usr_type': usr_type,
                                                         'usr_id': usr_id})
@@ -123,70 +118,6 @@ class CustomerAccounts(View):
 
         return render(request, 'accounts.html', {'accts': data, 'usr_type': usr_type, 'usr_id': usr_id,
                                                       'trans_to': data_to, 'trans_from': data_from})
-
-
-# добавление транзакции, прилетает сверху из модалки
-@csrf_exempt
-def modal_transaction(request):
-    if request.method == 'POST':
-        time_1 = datetime.datetime.now()
-
-        accountId_to = AccountModel.objects.get(idAccounts=int(request.POST.get('account_to')))
-        accountId_from = AccountModel.objects.get(idAccounts=int(request.POST.get('account_from')))
-
-        money = request.POST.get('money')
-        currency = AccountModel.objects.get(idAccounts=int(request.POST.get('account_from'))).currency
-        comments = request.POST.get('comments')
-
-        if accountId_from.money < int(money):
-            return HttpResponse(
-                json.dumps({"nothing to see": "this isn't happening"}),
-                content_type="application/json"
-            )
-
-        data = {
-            'accountId_to': accountId_to.idAccounts,
-            'accountId_from': accountId_from.idAccounts,
-            'money': money,
-            'currency': currency,
-            'comments': comments,
-            'time_t': time_1
-        }
-        transaction = AddTransactionForm(data)
-        transaction.save()
-
-        # снятие с аккаунта_from
-        account_from = accountId_from
-        account_from.money = F('money') - money
-        account_from.save()
-
-        # пополнение аккаунта_to
-        account_to = accountId_to
-        account_to.money = F('money') + money
-        account_to.save()
-        # получаю запись транзакции, т.к. id не вытащить
-        ready_trans = TransactionsModel.objects.get(time_t=time_1)
-        print('ready:  ', ready_trans)
-        # Формируем json с отзывом для обновления страницы
-        response_data = dict()
-        response_data["idTransactions"] = ready_trans.idTransactions
-        response_data["accountId_from"] = ready_trans.accountId_from.idAccounts
-        response_data["fio_from"] = ready_trans.accountId_from.customerId_FK.fio
-        response_data["accountId_to"] = ready_trans.accountId_to.idAccounts
-        response_data["money"] = ready_trans.money
-        response_data["currency"] = ready_trans.currency
-        response_data["comments"] = ready_trans.comments
-        response_data["time_t"] = time.asctime()
-
-        return HttpResponse(
-            json.dumps(response_data),
-            content_type="application/json"
-        )
-    else:
-        return HttpResponse(
-            json.dumps({"nothing to see": "this isn't happening"}),
-            content_type="application/json"
-        )
 
 
 class CustomerTransactions(View):

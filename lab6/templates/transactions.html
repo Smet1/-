@@ -1,19 +1,13 @@
 
-{% block content %}
-    <ul>
-        <ul>
-            {% for trans in transactions %}
-                <br/> id Транзакции: {{ trans.idTransactions }}
-                <br/> id From: {{ trans.customerId_from.idCustomer }}
-                      ФИО: {{ trans.customerId_from.fio }}
-                <br/> id Счета (на какой): {{ trans.accountId_to.idAccounts }}
-                <br/> Сумма: {{ trans.money }} {{ trans.currency }}
-                <br/> Комменты: {{ trans.comment }}
-                <br/> Дата: {{ trans.time }}
-                <hr width="50%" align="left">
-            {% empty %}
-                Баааа, да тут пусто...
-            {% endfor %}
-        </ul>
-    </ul>
-{% endblock %}
+    {% for trans in transactions %}
+        <h5> id Транзакции: {{ trans.idTransactions }} </h5>
+        <h5> id счета отправителя: {{ trans.accountId_from.idAccounts }} <br>
+        ФИО: {{ trans.accountId_from.customerId_FK.fio }} </h5>
+        <h5> id Счета (на какой): {{ trans.accountId_to.idAccounts }} </h5>
+        <h5> Сумма: {{ trans.money }} {{ trans.currency }} </h5>
+        <h5> Комментарии: {{ trans.comments }} </h5>
+        <h6 class="text-primary"> Дата: {{ trans.time_t }} </h6>
+        <div class="well well-sm"></div>
+    {% empty %}
+        Баааа, да тут пусто...
+    {% endfor %}

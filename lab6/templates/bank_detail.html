@@ -5,19 +5,30 @@
 {% endblock %}
 
 {% load static %}
-{% block content %}
-    <div class="bank_class">Название банка: {{ banks.name }}
-        <br/> Адрес: {{ banks.address }}
-        <br/> Телефон: {{ banks.phone }}
+{% block main %}
+    <div style="width: 65%;
+                padding: 5px 20px;
+                float: left;">
+        <div style="text-align: center">
+            <h1>{{ banks.name }}</h1>
+        </div>
+        <br>
+        <br>
+        <h3>Адрес: {{ banks.address }}</h3>
+        <blockquote class="blockquote-reverse">
+            <footer>
+                <h4>Телефон: <span class="glyphicon glyphicon-phone"></span> {{ banks.phone }}</h4>
+            </footer>
+        </blockquote>
     </div>
 
     <div class="img_bank">
-        <img src="/static/img/{{ banks.idBanks }}.jpg" alt="" width="250px"; height="80px">
-    </div>
-    <div class="img_bank">
-        <img src="/static/img/{{ banks.idBanks }}.png" alt="" width="280px" height="80px">
+        <img src="/static/img/{{ banks.image }}" alt="{{ product.name }}" width=30%>
     </div>
 
-    <div class="bank_comments">Коротко о банке: <p>{{ banks.comments }}</p></div>
+
+    <div class="bank_comments">
+        <h4>{{ banks.comments }}</h4>
+    </div>
     <div class="fixed_bot">Страница банка № {{ banks.idBanks }}</div>
 {% endblock %}

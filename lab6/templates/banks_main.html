@@ -1,14 +1,49 @@
 {% extends 'Base.html' %}
 
 {% block title %}Банки{% endblock %}
-{% block content %}
-    <ul class="none">
-        <ul>
-            {% for bank in banks %}
-                <li><a href={% url 'banks_detail' bank.idBanks %}>{{ bank.name }} </a></li>
-            {% empty %}
-                Баааа, да тут пусто...
-            {% endfor %}
-        </ul>
-    </ul>
+{% block main %}
+    <div id="bank-cards">
+        {% for row in banks %}
+
+            <div id="row">
+                {% for bank in row %}
+                    <div style="height: 500px; margin-left: 30px">
+                        <div style="height: 380px">
+                            <div style="display: inline; float: left; width: 70%;">
+                                <h2>{{ bank.name }}</h2>
+                                <br>
+                                <h4>{{ bank.short_comments }}</h4>
+                                <br>
+                                <blockquote class="blockquote-reverse">
+                                    <h4>{{ bank.address }}</h4>
+                                    <br>
+                                    <footer>{{ bank.phone }}</footer>
+                                </blockquote>
+
+                            </div>
+                            <div style="margin-left: 30%">
+                                <img src="/static/img/{{ bank.image }}" alt="{{ product.name }}" width=30%">
+                            </div>
+                        </div>
+                        <div>
+                            <a href={% url 'banks_detail' bank.idBanks %}>
+                                <button class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-zoom-in"></span>
+                                    Tell me more &rarr;
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="well well-sm"></div>
+                {% endfor %}
+            </div>
+
+        {% empty %}
+            Баааа, да тут пусто...
+        {% endfor %}
+    </div>
+
+
+
 {% endblock %}
+

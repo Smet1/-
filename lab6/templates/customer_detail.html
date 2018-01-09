@@ -4,16 +4,28 @@
     {{ customers.idCustomer }}
 {% endblock %}
 
-{% block content %}
-    <div style="margin-top: 40pt">ФИО: {{ customers.fio }}
-        <br/> Login: {{ customers.login }}
-        <br/> Password: {{ customers.password }}
-        <br/> Phone: {{ customers.phone }}
+{% block left_bar %}
+    <div>
+        <h3>ФИО: {{ customers.fio }}</h3>
+        <h3>Login: {{ customers.login }}</h3>
+        <h4>Password: {{ customers.password }}</h4>
+        <h4>Phone: {{ customers.phone }}</h4>
     </div>
-    <br/>
-    <div>Ваши счета:</div>
-    {% include 'accounts.html' with accounts=accts %}
-    <div>Ваши переводы:</div>
-    {% include 'transactions.html' with transactions=trans %}
-    <div class="fixed_bot">Страница юзера № {{ customers.idCustomer }}</div>
+{% endblock %}
+
+{% block content %}
+    <div style="width: 300px; margin-left: 200%; text-align: right">
+        <div style="">
+            <h2>Ваши счета:</h2>
+        </div>
+        <div>
+            {% for acct in accts %}
+                <h3><a href={% url 'accts' acct.idAccounts %}>Счет №{{ acct.idAccounts }}</a></h3>
+
+                <h4><b>Сумма: {{ acct.money }} {{ acct.currency }}</b></h4>
+                <br>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

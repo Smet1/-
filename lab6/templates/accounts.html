@@ -1,17 +1,90 @@
+{% extends 'Base.html' %}
 
+{% block title %} Счет № {{ accts.idAccounts }} {% endblock %}
+{% block left_bar %}
+    <div>
+        <h4><b>id Счета: {{ accts.idAccounts }}</b> </h4>
+        <h4>id Банка: {{ accts.bankId_FK.idBanks }}
+            Название: {{ accts.bankId_FK.name }} </h4>
+        <h4> Тип: {{ accts.type }} </h4>
+        <h4 class="text-danger"> <b>Сумма: {{ accts.money }} {{ accts.currency }} </b> </h4>
+        <a href={% url 'add_trans' %}>
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-piggy-bank"></span> Перевод
+            </button>
+        </a>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalTrans">
+            Перевод  <span class="glyphicon glyphicon-piggy-bank"></span>
+        </button>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModalTrans" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Перевод</h4>
+                </div>
+
+
+                <div class="modal-body">
+                    <form action="/modal_transaction/" method="POST" id="transaction-form"> <!--АТТЕНШЕН-->
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="input">Конечный счет:</label>
+                            <input type="number" class="form-control" id="account_to">
+                        </div>
+                        <div class="form-group">
+                            <label for="input">Сумма:</label>
+                            <input type="number" class="form-control" id="money">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Комментарии:</label>
+                            <textarea class="form-control" rows="2" id="comments"></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-success btn-pill d-flex ml-auto mr-auto"
+                               value="Send transaction" onclick="validate(this.form)" >
+                        <input type="hidden" id="account_from" value="{{ accts.idAccounts }}">
+                        <input type="number" hidden="true" id="money_now" value="{{ accts.money }}">
+
+                        <!--
+                        <br>
+                        accts:{{ accts }} <br>
+                        'usr_type': {{ usr_type }} <br>
+                        'usr_id': {{ usr_id }} <br>
+                        'trans_to': {{ trans_to }}, <br>
+                        'trans_from': {{ trans_from }} <br>-->
+
+
+                    </form>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
 {% block content %}
-    <ul>
-        <ul>
-            {% for acct in accounts %}
-                <br/> id Счета: {{ acct.idAccounts }}
-                <br/> id Банка: {{ acct.bankId_FK.idBanks }}
-                      Название: {{ acct.bankId_FK.name }}
-                <br/> Тип: {{ acct.type }}
-                <br/> Сумма: {{ acct.money }} {{ acct.currency }}
-                <hr width="40%" align="left">
-            {% empty %}
-                Баааа, да тут пусто...
-            {% endfor %}
-        </ul>
-    </ul>
+    <div>
+        <div class="container" id="money_plus">
+            <div style="float: left; margin-left: 15%; width: 22%;">
+                <div style="color: green">Ваши переводы (пополнение):</div>
+                {% include 'transactions.html' with transactions=trans_to %}
+            </div>
+            <div id="money_minus" style="margin-left: 75%; width: 22%;">
+                <div style="color: orangered">Ваши переводы (снятие):</div>
+                {% include 'transactions.html' with transactions=trans_from %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

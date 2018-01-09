@@ -1,5 +1,6 @@
 from django import forms
 from .models import CustomerModel, TransactionsModel
+import datetime
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -39,15 +40,15 @@ class UserAuthenticationForm(forms.ModelForm):
 class AddTransactionForm(forms.ModelForm):
     class Meta:
         model = TransactionsModel
-        exclude = ['customerId_from', 'customerId_to']
+        fields = ['accountId_to', 'accountId_from', 'money', 'currency', 'comments', 'time_t']
 
-    # customerId_from = forms.IntegerField(label='customerId_from')
-    # customerId_to = forms.IntegerField(label='customerId_to')
-
-    accountId_to = forms.IntegerField(label='accountId_to')
-    accountId_from = forms.IntegerField(label='accountId_from')
+    # accountId_to = forms.ModelChoiceField(label='accountId_to', queryset='')
+    # accountId_from = forms.ModelChoiceField(label='accountId_from', queryset='')
 
     money = forms.IntegerField(label='money')
     currency = forms.CharField(max_length=10, label='currency')
-    comment = forms.CharField(max_length=100, label='comment', empty_value=True)
-    time = forms.DateField(label='date')
+    comments = forms.CharField(max_length=100, label='comment', empty_value=True)
+    time_t = forms.DateTimeField(label='date', input_formats='%d/%m/%Y %H:%M', )
+
+
+

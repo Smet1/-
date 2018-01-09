@@ -11,7 +11,7 @@
         <div>
             <div>
                 <p>счет куда: {{ form.accountId_to }}</p>
-                <p>счет откуда:
+                <p>счет откуда: <!--{{ form.accountId_from }} -->
                     <label>
                         <select name="accountId_from">
                             <option></option>
@@ -20,12 +20,13 @@
                             {% endfor %}
                         </select>
                     </label>
+
                 </p>
                 <p>сумма: {{ form.money }}</p>
-                <p>комментарии: {{ form.comment }}</p>
+                <p>комментарии: {{ form.comments }}</p>
             </div>
             <div class="submit-row" style="margin-bottom: 7%">
-                <button class="btn btn-default" onclick="validate(this.form)" type="submit" id="but_id">Проверить и подтвердить</button>
+                <button class="btn btn-default" type="submit" id="but_id">Подтвердить</button>
                 <a class="btn btn-default" type="button" href="{% url 'home' %}">Отмена</a>
             </div>
         </div>
@@ -43,67 +44,8 @@
                 Баааа, да тут пусто...
             {% endfor %}
         </ul>
+
     </ul>
 </body>
 
-<script>
-    window.check_var = 0;
-    function showError(container, errorMessage)
-    {
-        container.className = 'error';
-        var msgElem = document.createElement('span');
-        msgElem.className = "error-message";
-        msgElem.innerHTML = errorMessage;
-        container.appendChild(msgElem);
-    }
-
-    function resetError(container)
-    {
-        container.className = '';
-        if (container.lastChild.className == "error-message")
-        {
-            container.removeChild(container.lastChild);
-            window.check_var = 0;
-        }
-    }
-
-    function validate(form)
-    {
-        var elems = form.elements;
-
-        resetError(elems.accountId_to.parentNode);
-        if (!elems.accountId_from.value)
-        {
-            showError(elems.accountId_from.parentNode, ' Укажите с какого счета.');
-            window.check_var += 1;
-        }
-
-        resetError(elems.accountId_to.parentNode);
-        if (!elems.accountId_to.value)
-        {
-            showError(elems.accountId_to.parentNode, ' Укажите на какой счет.');
-            window.check_var += 1;
-        }
-
-        resetError(elems.money.parentNode);
-        if (!elems.money.value)
-        {
-            showError(elems.money.parentNode, ' Укажите сколько.');
-            window.check_var += 1;
-        }
-
-
-    }
-    var form = document.getElementById("form_id");
-
-    document.getElementById("but_id").addEventListener("click", function ()
-    {
-        if (window.check_var === 0)
-        {
-            form.submit();
-        }
-
-    });
-
-  </script>
 </html>
